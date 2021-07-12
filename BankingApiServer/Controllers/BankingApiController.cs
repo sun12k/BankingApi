@@ -41,5 +41,18 @@ namespace BankingApiServer.Controllers
             };
             
         }
+        [HttpPost]
+        public bool CreateAcccount(string name, int initialDeposit)
+        {
+            //Validation
+            if(string.IsNullOrEmpty(name) || initialDeposit <= 0)
+            {
+                return false;
+            }
+
+            var newAccount = new Account { Name = name, Balance = initialDeposit };
+            //TODO:persist newAccount
+            return true;
+        }
     }
 }
