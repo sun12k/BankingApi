@@ -53,5 +53,12 @@ namespace BankingApiServer.Tests
             var success = controller.Transfer(1, 2, 100);
             Assert.IsTrue(success);
         }
+        [Test]
+        public void Balance_ShouldPassForValidAccount()
+        {
+            var controller = new BankingApiController(_logger);
+            var balance = controller.Balance(1);
+            Assert.IsTrue(balance>0);
+        }
     }
 }
