@@ -54,5 +54,19 @@ namespace BankingApiServer.Controllers
             //TODO:persist newAccount
             return true;
         }
+        [HttpPost]
+        public bool Transfer(int fromAccount, int toAccount, int transferAmount)
+        {
+            //Validation
+            if (transferAmount <= 0)//todo: add accountNumber validation too
+            {
+                return false;
+            }
+            else
+            {
+                //todo: finish the persistance for transfer
+                return true;
+            }
+        }
     }
 }

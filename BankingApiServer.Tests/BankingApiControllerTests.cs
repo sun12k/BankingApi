@@ -12,7 +12,7 @@ namespace BankingApiServer.Tests
         [SetUp]
         public void Setup()
         { }
-    
+
 
         [Test]
         public void GetListOfAccounts()
@@ -38,6 +38,20 @@ namespace BankingApiServer.Tests
             var controller = new BankingApiController(_logger);
             var success = controller.CreateAcccount("someName", 9);
             Assert.IsTrue(true);
+        }
+        [Test]
+        public void Transfer_ShouldFailForNonValidAmount()
+        {
+            var controller = new BankingApiController(_logger);
+            var success = controller.Transfer(1, 2, 0);
+            Assert.IsFalse(success);
+        }
+        [Test]
+        public void Transfer_ShouldPassForValidAmount()
+        {
+            var controller = new BankingApiController(_logger);
+            var success = controller.Transfer(1, 2, 100);
+            Assert.IsTrue(success);
         }
     }
 }
