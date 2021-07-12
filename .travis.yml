@@ -1,13 +1,11 @@
 language: csharp
 mono: none
 dotnet: 5.0.7
-script:
- - dotnet restore
-
 solution: BankingApi.sln
 install:
   - nuget restore solution-name.sln
   - nuget install NUnit.Console -Version 3.13.1 -OutputDirectory testrunner
 script:
+ - dotnet restore
   - msbuild /p:Configuration=Release BankingApi.sln
   - mono ./testrunner/NUnit.ConsoleRunner.3.13.1/tools/nunit3-console.exe ./MyProject.Tests/bin/Release/BankingApiServer.Tests.dll
