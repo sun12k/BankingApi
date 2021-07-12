@@ -3,7 +3,7 @@ mono: none
 dotnet: 5.0
 solution: BankingApi.sln
 install:
-  - nuget restore solution-name.sln
+  - nuget restore BankingApi.sln
   - nuget install NUnit.Console -Version 3.13.1 -OutputDirectory testrunner
 script:
  - dotnet restore
