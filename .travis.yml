@@ -7,5 +7,5 @@ install:
   - nuget install NUnit.Console -Version 3.13.1 -OutputDirectory testrunner
 script:
  - dotnet restore
-  - msbuild /p:Configuration=Release BankingApi.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.3.13.1/tools/nunit3-console.exe ./MyProject.Tests/bin/Release/BankingApiServer.Tests.dll
+ - msbuild /p:Configuration=Release BankingApi.sln
+ - mono ./testrunner/NUnit.ConsoleRunner.3.13.1/tools/nunit3-console.exe ./MyProject.Tests/bin/Release/BankingApiServer.Tests.dll
